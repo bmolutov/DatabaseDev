@@ -1,0 +1,41 @@
+Normalization
+a technique of organizing the data into multiple related tables, to minimize DATA REDUNDANCY.
+
+Why we use normalization?
+1) Repetition of data increases the size of database (DR).
+2) Other issues like:
+	Insertion problems
+	Deletion problems
+	Updation problems   
+
+
+First normal form:
+1) Each cell to be Single valued
+2) Entries in a column are same type
+3) Rows are uniquely identified
+4) Order in which data is saved doesn't matter.
+
+Second normal form:
+1) All attributes (non-key columns) dependent on the key
+2) It should not have any partial dependencies.
+*Для улучшения ситуации при присутствии аттрибутов которые не зависят от праймари кей мы можем поделить эту таблицу на две к примеру и создать дополнительную таблицу для того что связать их.
+(бывает что какой либо аттрибут не зависит полностью от праймари кей и это проблема)
+
+Third normal form:
+1) All fields (columns) can be determined only by the key in the table and no other column
+2) It should not have Transitive Dependency
+*Для предотвращения повторяющихся данных в ячейках мы можем создать отдельную таблицу которая решит эту проблему
+(бывает что какой либо аттрибут не зависит от праймари кей и это проблема)
+
+Boyce-Codd normal form (BCNF) or 3.5 normal form:
+1) For any dependency A => B, A should be super key.
+(мы не должны допустить того что мы найдем prime attribute ссылаясь на non-prime attiribute) So, for this we have to break our table.
+
+Fourth normal form:
+1) No multi-valued dependencies
+*Бывает что есть аттрибуты которые зависят от определенного праймари кей но между собой они не имеют какой либо связи (к примеру в одной таблице есть три аттрибута: студент, предмет, хобби, заметьте предмет и хобби не имеют никакого отношения друг к другу), тогда принимаем меры: просто делим таблицу
+
+Fifth normal form:
+1) It should not have Join dependency.
+If Join dependency exist decompose the table.
+*Если мы можем разбить таблицу и при этом не теряем данные и правильную связь то делаем декомпозицию.
